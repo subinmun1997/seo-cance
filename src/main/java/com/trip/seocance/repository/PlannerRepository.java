@@ -16,7 +16,7 @@ import java.util.List;
 
 @Repository
 public interface PlannerRepository extends JpaRepository<Planner, Long> {
-    List<Planner> findAllByIdOrderByPlannerNoDesc(String id);
+    List<Planner> findAllByMemberIdOrderByPlannerNoDesc(String id);
     Planner findByPlannerNo(Long plannerNo);
     @Transactional
     void deleteByPlannerNo(Long plannerNo);

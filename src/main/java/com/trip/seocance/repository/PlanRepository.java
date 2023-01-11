@@ -16,10 +16,10 @@ import java.util.List;
 
 public interface PlanRepository extends JpaRepository<Plan, Long> {
 
-    List<Plan> findAllByPlannerNoAndDayBetweenOrderByPlanNo(Long plannerNo, Date start, Date end);
-    List<Plan> findAllByPlannerNoOrderByPlanNo(Long plannerNo);
+    List<Plan> findAllByPlannerPlannerNoAndDayBetweenOrderByPlanNo(Long plannerNo, Date start, Date end);
+    List<Plan> findAllByPlannerPlannerNoOrderByPlanNo(Long plannerNo);
     @Transactional
-    void deleteAllByPlannerNo(Long plannerNo);
+    void deleteAllByPlannerPlannerNo(Long plannerNo);
     @Transactional
     void deleteByPlanNo(Long planNo);
 
