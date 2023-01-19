@@ -4,6 +4,8 @@ import com.trip.seocance.domain.crew.Crew;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CrewRepository extends JpaRepository<Crew, Long> {
 
@@ -18,4 +20,7 @@ public interface CrewRepository extends JpaRepository<Crew, Long> {
 
     //크루번호, 아이디로 해당 ID가 크루장인지 조회
     boolean existsByCrewNoAndMemberId(Long crewNo, String id);
+
+    //신생 크루 조회
+    List<Crew> findTop3ByOrderByCrewNoDesc();
 }
