@@ -1,9 +1,11 @@
 package com.trip.seocance.configuration;
 
 import com.trip.seocance.util.UploadCrewFileUtil;
+import com.trip.seocance.util.UploadProfileUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 
 /*
  * Configuration 클래스
@@ -31,5 +33,15 @@ public class SeoCanceConfiguration {
         return System.getProperty("user.dir") + "/src/main/resources/static/_image";
     }
 
+    //HTTP hidden Method : delete, put, patch...
+    @Bean
+    public HiddenHttpMethodFilter httpMethodFilter() {
+        return new HiddenHttpMethodFilter();
+    }
 
+    //@Author 문수빈, Date : 2023/02/02
+    @Bean
+    public UploadProfileUtil uploadProfileUtil() {
+        return new UploadProfileUtil(uploadPath());
+    }
 }
